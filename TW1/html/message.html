@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title> Forum ASI </title>
+  <meta charset="utf-8"/> <!-- erreur -->
+  <link href="style.css" rel="stylesheet" type="test/css"/>
+  </head>
+  <body>
+    <img src="logoasi.png" alt="logo ASI" id="logo"/>
+    <form>
+      <fieldset>
+        <legend> Coordonées : </legend>
+        <label> Name : </label> <input type = "text" name = "monNom" id ="name" placeholder="Saisissez votre nom" />
+        <br/>
+        <label> E-mail : </label> <input type = "text" name = "monEmail" id ="mail" placeholder="Saisissez votre email" />
+        <!--Pour faire une ligne horizontale: <hr/>   -->
+      </fieldset>
+      <fieldset>
+        <legend> Message : </legend>
+        <textarea name="texte" rows="10" cols="80"> Message... </textarea>
+      </fieldset>
+      <input type="submit" name="posterMessage" value="Poster le message" />
+      <input type="submit" name="action" value="Effacer"/>
+    </form>
+  </body>
+</html>
+<!-- On n'a pas défini les sélecteur pour le formattage CSS -->

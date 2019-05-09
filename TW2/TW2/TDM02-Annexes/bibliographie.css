@@ -1,0 +1,27 @@
+publication{
+  display: block;
+}
+
+annee:after{
+  content: ".";
+}
+
+titre:before{
+  content:"'";
+}
+titre{
+  font-style: italic;
+}
+titre:after{
+  content:"'";
+}
+
+* > auteurs :before{
+  content: ",";
+}
+pages:before{
+  content: ",";
+}
+annee:before{
+  content: ",";
+}

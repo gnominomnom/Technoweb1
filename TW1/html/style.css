@@ -1,0 +1,25 @@
+/* basic elements */
+html {
+	margin: 0;
+	padding: 0;
+	}
+
+.Bouton {
+  background-color: green;
+	color : white;
+}
+
+.logo {
+	width : 110px;
+	height : 70px;
+	position: absolute; right: 70px; top: 0px;
+}
+
+.legendRect {
+	background-color : gray;
+	color : white;
+}
+
+.rectangle {
+	border-width: thick ;
+}

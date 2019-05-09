@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Élément à positionner</title>
+    <style>
+    div#main
+    {
+      border:solid 1px red;
+      width :204px;
+      height: 204px;
+      position:absolute;
+      top:50px;
+      left:50px;
+    }
+    div
+    {
+      border:solid 1px green;
+      width :100px;
+      height: 100px;
+      text-align:center;
+    }
+
+    #d1
+    {
+      position:absolute;
+      top: 0px;
+      left : 0px;
+    }
+    #d2
+    {
+      position:absolute;
+      top:102px;
+      left:0px;
+    }
+    #d3
+    {
+      position:absolute;
+      top:0px;
+      left:102px;
+    }
+    #d4
+    {
+      position:absolute;
+      top:102px;
+      left:102px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="d1">1</div>
+      <div id="d2">2</div>
+      <div id="d3">3</div>
+      <div id="d4">4</div>
+    </div>
+  </body>
+</html>

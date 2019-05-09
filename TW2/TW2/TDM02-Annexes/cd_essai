@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE cd SYSTEM "cd.dtd">
+
+<cd>
+  <interprete>
+    <nom>Planterose</nom>
+    <prenom>Elsa</prenom>
+  </interprete>
+
+  <interprete>
+    <nom>Henriet</nom>
+    <prenom>Ludovic</prenom>
+  </interprete>
+
+  <interprete>
+    <nom>Grisèle</nom>
+    <prenom>Ludovic</prenom>
+  </interprete>
+
+  <titre>Les capteurs dans nos coeurs, Arduino c'est de l'eau</titre>
+
+  <groupe>Microµ</groupe>
+
+  <edition>
+    <nom>SoundSystem</nom>
+    <lieu>Paris</lieu>
+    <pays>France</pays>
+    <annee>2002</annee>
+    <admin>
+      <plages>316</plages>
+      <prix monnaie="DOLLAR">???</prix>
+    </admin>
+  </edition>
+
+  <critiques>
+    <resume>
+      <para>Blabla.</para>
+      <para>Bleble</para>
+    </resume>
+    <remarque>Voir aussi le site Hermès: http://www.soundsystem.fr/fr/.</remarque>
+  </critiques>
+</cd>

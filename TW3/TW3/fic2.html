@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Calculatrice V2</title>
+  </head>
+  <body>
+    Saisissez une expression
+    <form>
+      <fieldset id="boutons">
+        <label> Expression : </label> <input type = "text" name = "leCalcul" id ="calcul" placeholder="Expression à calculer"/>
+        <input type="submit" name="executer" id="lancerCalcul" value="Calculer" onclick="javascript:popup();"/>
+        <input type="radio" name="choix" id="texte"/><label for="texte">en texte</label>
+        <input type="radio" name="choix" id="alerte"/><label for="alerte">par alerte</label> <br/>
+          <label> Résultat : </label> <input type = "text" name = "leCalcul" id ="res" placeholder="Expression à calculer"/>
+      </fieldset>
+    </form>
+    <footer>
+      <script type="text/javascript">
+          // <!--
+          function popup() {
+            var texte=document.getElementById("texte").checked;
+            var alerte=document.getElementById("alerte").checked;
+
+              op=document.getElementById("leCalcul");
+              res=eval(op);
+              if (texte) {
+                document.getElementById("res").value = res;
+              }
+              else {
+                if (alerte) {
+                  alert(res);
+                }
+              }
+            }
+
+          // -->
+      </script>
+    </footer>
+    </body>
+</html>
