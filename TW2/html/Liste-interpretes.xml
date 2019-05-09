@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE interpretes SYSTEM "liste-interpretes.dtd">
+<interpretes>
+  <interprete index="1">
+    <nom>Debussy</nom>
+    <prenom>Victor</prenom>
+    <siecle>XIX</siecle>
+  </interprete>
+
+  <interprete index="2">
+    <nom>de Zalbac</nom>
+    <prenom>Honorine</prenom>
+  </interprete>
+
+  <interprete index="4">
+    <nom>Racine</nom>
+    <prénom>Bob</prénom>
+  </interprete>
+
+  <interprete index="4">
+    <nom>Gogue</nom>
+    <prenom>Van</prenom>
+    <siecle>XIX</siecle>
+  </interprete>
+
+  <interprete index="4bis">
+    <nom>Bitoven</nom> (de la)
+    <prenom>Jean</prenom>
+  </interprete>
+
+  <interprete index="5">
+    <prenom>Zart</prenom>
+    <nom>Maud</nom>
+    <siecle/>
+  </interprete>
+</interpretes>

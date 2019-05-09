@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Horloge </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body onload="javascript:depart()">
+    <header> <h1> Horloge</h1> </header>
+    <footer>
+    <script type="text/javascript">
+      function depart () {
+        afficheDate();
+        setInterval(majHeure,1000);
+      }
+      function afficheDate() {
+        var maintenant=new Date() ;
+        var body = document.getElementsByTagName("body")[0];
+        var date = document.createTextNode(maintenant.getDate() + "/"
+                  + String(maintenant.getMonth()+1)+ "/" + maintenant.getFullYear() + " ");
+        body.appendChild(date);
+        var heure = document.createTextNode(maintenant.getHours()+":"
+                  + maintenant.getMinutes()+ ":" + maintenant.getSeconds());
+        body.appendChild(heure);
+      }
+      function majHeure() {
+        var maintenant=new Date();
+        var body = document.getElementsByTagName("body")[0];
+        var vieilleHeure = body.lastChild;
+        var nouvelleHeure = document.createTextNode(maintenant.getHours() + ":"
+        + maintenant.getMinutes() + ":" + maintenant.getSeconds());
+        body.replaceChild(nouvelleHeure,vieilleHeure);
+        }
+    </script>
+    </footer>
+  </body>
+</html>

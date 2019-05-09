@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <title>Calculatrice V2</title>
+  </head>
+  <body>
+    <header>
+      <h1>Calculatrice V2</h1>
+    </header>
+    <form id="formulaire">
+      <br/>
+      <label>Calcul : </label><input type="text" id="boiteCalcul" placeholder="Entrez une expression"/>
+      <button type="button" id="valider" onclick="javascript:calcul()">Go</button>
+      <br/>
+      <input type="radio" name="choix" id="txt" checked="checked"/><label for="txt">Résultat en champ texte</label>
+      <!--checked est un booléen propre aux input de type "radio", le bouton "txt" sera coché par défaut puis on
+      teste en fonction de l'action de l'utilisateur quel bouton est coché pour choisir l'action à venir-->
+      <input type="radio" name="choix" id="alert"/><label for="alert">Résultat dans une fenetre pop up</label>
+      <br/>
+      <input type="text" name="res" id="reponse"/><label for="reponse">Résultat</label>
+      <br/>
+      <a href="calculatriceV2.html">Nouveau calcul</a>
+    </form>
+    <footer>
+      <script type="text/javascript">
+        //<!--
+          function calcul() {
+            var expression=document.getElementById("boiteCalcul").value;
+            var res=eval(expression);
+            var affichage=test(document.getElementById("formulaire").choix);
+            if (affichage==0)
+              document.getElementById("reponse").value=res;
+            else
+              if (affichage==1)
+                alert(expression+" = "+res);//ne marche pas et je sais pas pourquoi
+          }
+          function test(boutonsRadio) {
+            for (var i=0;i<boutonsRadio.length;i++) {
+              if (boutonsRadio[i].checked) //checked est un booléen
+                return i;
+              return -1;
+            }
+          }
+        //-->
+      </script>
+    </footer>
+  </body>
+</html>

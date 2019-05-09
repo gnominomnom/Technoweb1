@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Calculette 2 </title>
+      <meta http-equiv= "Content-Type" content= "text/html; charset=utf-8">
+  </head>
+  <body>
+    <header>
+      <h1> Calculette 2 en javascript</h1>
+    </header>
+    <form id= "formulaire">
+      <fieldset>
+        <label> Emplacement de la réponse : </label>
+        <input type= "radio" name= "affichage" id= "texte" checked= "checked" />
+          <label for="texte"> formulaire</label>
+        <input type="radio" name= "affichage" id= "pop-up"/>
+          <label for="pop-up">pop-up</label>
+  <hr/>
+        <input id= "expression" type= "text" size= "15"/>
+        <input type= "button" value= "=" onclick= "calculer()" />
+        <input id= "reponse" type= "text" size= "6" />
+      </fieldset>
+    </form>
+    <footer>
+      <script type="text/javascript">
+          function calculer () {
+            var expression = document.getElementById("expression").value;
+            var affichage = test(document.getElementById ("formulaire").affichage);
+            if (affichage==0){
+              var reponse = document.getElementById("reponse");
+              reponse.value = eval(expression);
+            } else if(affichage==1)
+              alert (expression + "=" + eval(expression));
+              else
+                alert("Choississez un affichage !");
+            }
+          function test(radio) {
+            for (var i=0; i<radio.length;i++)
+              if (radio[i].checked)
+                return i;
+            return -1;
+          }
+      </script>
+    </footer>
+  </body>
+</html>
