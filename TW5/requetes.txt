@@ -1,0 +1,26 @@
+VirtualBox :
+>telnet adresseIP port
+
+>GET /index.php HTTP/1.1
+Host: localhost
+If-Modified-Since: 'Fri,17 May 2019 13 :00 :00 GMT'
+
+
+>HEAD /index.php HTTP/1.1
+Host: localhost
+If-Modified-Since: 'Fri,17 May 2019 13 :00 :00 GMT'
+
+ET /inscription.html HTTP/1.1
+Host: asi-technoweb.insa-rouen.fr
+If-Modified-Since: 'Fri,17 May 2019 13 :00 :00 GMT'
+
+GET /~nprin/TW1/TP4/EXO/TP/inscription.html HTTP/1.1
+Host: asi-technoweb.insa-rouen.fr
+If-Unmodified-since: 'Fri,17 May 2019 15: 45: 00 GMT'
+
+GET /~nprin/TW1/TP4/EXO/TP/inscription.html HTTP/1.1
+Host: asi-technoweb.insa-rouen.fr
+Range: bytes=2-5
+
+GET /~nprin/TW1/TP4/EXO/TP/inscription.html HTTP/1.1
+Host: asi-technoweb.insa-rouen.fr
