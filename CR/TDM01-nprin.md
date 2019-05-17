@@ -17,17 +17,45 @@
 * boutons qui ne sont pas cochables en même temps: utilisation de <**radio**> en mettant le paramètre **name** identique dans la déclaration des boutons.
 
   Exemple :
- <label> Statut:  </label> <input type="radio" name="statut" id="enseignant" /><label for="enseignant">Enseignant</label>
-<input type="radio" name="statut" id="etudiant"/><label for="etudiant">Etudiant</label> <!--meme nom dans variable "name" pour qu'on ne puisse sélectionner que l'un des 2-->
+         <label> Statut:  </label> <input type="radio" name="statut" id="enseignant" /><label for="enseignant">Enseignant</label>
+        <input type="radio" name="statut" id="etudiant"/><label for="etudiant">Etudiant</label> <!--meme nom dans variable "name" pour qu'on ne puisse sélectionner que l'un des 2-->
 
 * pour placer les éléments dans un rectangle : <*fieldset*> <*/fieldset*>
 * titre associé au rectangle : <*legend*> Légende </*legend*>
 
 * dans un selecteur, ne pas oublier de préciser le nombre d'option sélectionnées à la fois avec __size__.
 Exemple :
-<label>Si étudiant, année : </label> <select name="annee" size="1">
-<option value="1">1</option>
-<option value="2">2</option>
+      <label>Si étudiant, année : </label> <select name="annee" size="1">
+      <option value="1">1</option>
+      <option value="2">2</option>
+
+
+    * définition d'un id class="nomClasse" pour le CSS
+  Exemple :
+          <img src="nomImage.png" alt="logo ASI" class="logo"/>
+    * rectangle, class pour le CSS :
+  Exemple :
+          <fieldset class="nomClasse"> </fielset>
+  * légende
+        <legend class="nomClasse">légende</legend>
+  * bouton :
+    * types possibles :
+      * text
+      * radio
+      * submit
+
+Exemple :
+
+          <label> Nom : </label> <input type = "text" name = "name" id="identifier" placeholder="Saisissez votre nom" />
+
+          <input class="Bouton" type="submit" name="action" value="ValeurEcriteSurLeBouton" />
+  * rectangle pour entrer du texte avec un message
+
+Exemple :
+
+        <textarea name="texte" rows="10" cols="80"> Message... </textarea>
+
+
 ___
 
 ### CSS
@@ -40,15 +68,24 @@ ___
  * *sélecteur d'adjacent* : p __+__ {color: green}
  * *sélecteur de pseudo-classe* :  
     liste des pseudo-classes standards:
-      * :active : permet de cibler un élément lorsque celui-ci est activé par l'utilisateur. Elle permet de fournir un feedback indiquant que l'activation a bien été détectée par le navigateur. Par exemple si on clique sur un lien qui est de base en bleu il se transforme en rouge
-      * :checked : le statut du contenu
-      * :hover : position souris
-      * :first-child:  permet de cibler un élément qui est le premier élément fils par rapport à son élément parent.
-      * :nth-child(a*n+b) __ou__ :nth-child(__odd__) __ou__ :nth-child(__even__)
-      * :required: permet de cibler un élément <__input__> pour lequel l'attribut required est activé. Cela permet de mettre en forme les éléments obligatoires pour remplir correctement un formulaire. Par exemple, dans un formulaire où certains champs sont obligatoires comme le nom, le numéro de téléphone.
-      * :invalid : cible tout élément <*input*> pour lequel la validation du contenu échoue par rapport au type de donnée attendu. Ceci permet de mettre en forme les champs non valides pour aider l'utilisateur à identifier et à corriger les erreurs.
+      * __:active__ : permet de cibler un élément lorsque celui-ci est activé par l'utilisateur. Elle permet de fournir un feedback indiquant que l'activation a bien été détectée par le navigateur. Par exemple si on clique sur un lien qui est de base en bleu il se transforme en rouge
+      * __:checked__ : le statut du contenu
+      * __:hover__ : position souris
+      * __:first-child__:  permet de cibler un élément qui est le premier élément fils par rapport à son élément parent.
+      * __:nth-child(a*n+b)__ __ou__ :nth-child(__odd__) __ou__ __:nth-child__(__even__)
+      * __:required__: permet de cibler un élément <__input__> pour lequel l'attribut required est activé. Cela permet de mettre en forme les éléments obligatoires pour remplir correctement un formulaire. Par exemple, dans un formulaire où certains champs sont obligatoires comme le nom, le numéro de téléphone.
+      * __:invalid__ : cible tout élément <*input*> pour lequel la validation du contenu échoue par rapport au type de donnée attendu. Ceci permet de mettre en forme les champs non valides pour aider l'utilisateur à identifier et à corriger les erreurs.
+      * __margin__
+      * __padding__
+      * __background-color__
+      * __color__
+      * __position__
+      * __width__, __height__
+      * __right__, __left__, __top__, __bottom__
+      * __border-width : thick, thin, medium, 10px__
 
-  <span style="color:red"> Pour voir des exemples cliquer ici: https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes! </span>
+
+  <span style="color:red"> Pour voir des exemples cliquer ici:chrétien paul apôtre du christ https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes! </span>
 
  * *sélecteur de pseudo élément première lettre* : p:first-letter {text-transform: capitalize}
  * *sélecteur de pseudo élément __:before__ et __:after__* : Généralement utilisé pour ajouter du contenu esthétique à un élément via la propriété CSS content. Par défaut, l'élément créé est de type en-ligne (inline). Le content peut être laissé comme vide mais on ne peut pas le supprimer.
