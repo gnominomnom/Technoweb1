@@ -4,7 +4,15 @@
 
 #### XML
 
-* dans le fichier .dtd il n'y a pas de <__!DOCTYPE__> ; il sert à définir les relations parent-fils, les cardinalités,  l'enchaînement;
+* Exemple d'en-tête de fichier xml :
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE bibliographie SYSTEM "bibliographie.dtd">
+        <?xml-stylesheet type="text/css" href="bibliographie.css" ?>
+
+
+* DTD *externe local* : *SYSTEM*
+* DTD *externe publique* : *PUBLIC*
+* dans le fichier .dtd il n'y a pas de < __!DOCTYPE__ > ; il sert à définir les relations parent-fils, les cardinalités,  l'enchaînement;
 * Erreurs typiques :
   * indentation
   * balises mal placées, fermetures oubliées
@@ -14,28 +22,27 @@
 ### DTD
 
 * différencier un attribut d'un élément : attribut sert à préciser un élément, son type, ses limites
+* valeurs d'éléments :
+  * __(EMPTY|ANY)__ peut être vide ou contenir n'importe quel élément de la dtd.
 * valeurs d'attributs :
   * __REQUIRED__ : instanciation de l'attribut obligatoire.
 ne fonctionne pas dans toutes les configurations
   * __IMPLIED__ : valeur d'attribut optionnelle, instanciation non obligatoire
   * __FIXED 'val'__ : valeur constante
 * types d'attributs :
-  * CDATA : chaîne de caractère
-  * (a | b) : valeurs possibles
-  * ID : 2 valeurs d'attributs d'un élément utilisé 2 fois ne peuvent être les mêmes
-  * IDREFS : référence plusieurs ID d'attributs
+  * __CDATA__ : chaîne de caractère
+  * __(a | b)__ : valeurs possibles
+  * __ID__ : 2 valeurs d'attributs d'un élément utilisé 2 fois ne peuvent être les mêmes
+  * __IDREFS__ : référence plusieurs ID d'attributs
 Exemple :
         <!-- dtdid.dtd -->
         <!ELEMENT e1 (e2 | e3 | e4)* >
         <!ELEMENT e2 (#PCDATA)>
         <!ELEMENT e3 (#PCDATA)>
         <!ELEMENT e4 (#PCDATA)>
-        <!ATTLIST e2
-        id ID #REQUIRED>
-        <!ATTLIST e3
-        ref IDREF #IMPLIED>
-        <!ATTLIST e4
-        refs IDREFS #IMPLIED>
+        <!ATTLIST e2 id ID #REQUIRED>
+        <!ATTLIST e3 ref IDREF #IMPLIED>
+        <!ATTLIST e4 refs IDREFS #IMPLIED>
 
         <?xml version="1.0" encoding="utf-8"?>
         <e1>
@@ -47,7 +54,10 @@ Exemple :
             <e4 refs="id1 id2"/>
         </e1>
   * cardinalités :
-    * *+* : 1 -> "infty"
+    * __+__ : 1 -> inf
+    * __*__ : 0 ou inf
+    * __?__ 0 ou 1
+    * __e1 | e2__ ou
 
 #### CSS
 
