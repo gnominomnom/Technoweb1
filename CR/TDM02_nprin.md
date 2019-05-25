@@ -62,3 +62,7 @@ Exemple :
 #### CSS
 
 * Remarque : Pour placer la ponctuation, on est obligé de les placer après/avant chaque type plutôt que d'utiliser un sélecteur global (comme AllOf) et d'ajouter une exception.
+
+#### Remarques pratiques
+#### Points importants CM
+#### Scripts
