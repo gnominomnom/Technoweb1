@@ -122,3 +122,7 @@ ___
   * sélecteur d’enfant (descendant direct) : element<span style="color:red"> > </span>element
   * sélecteur d’adjacent :element1<span style="color:red">~</span>element2
   * sélecteur d’adjacent direct: element<span style="color:red">+</span>element
+
+#### Remarques pratiques
+#### Points importants CM
+#### Scripts
