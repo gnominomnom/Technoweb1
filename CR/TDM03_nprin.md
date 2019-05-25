@@ -111,3 +111,6 @@ __Syntaxe générale__ :  *window.open(URL, name, specs, replace)*
 
 
 #### Question 5: Forum ASI
+#### Remarques pratiques
+#### Points importants CM
+#### Scripts
