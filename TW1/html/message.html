@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title> Forum ASI </title>
-  <meta charset="utf-8"/> <!-- erreur -->
-  <link href="style.css" rel="stylesheet" type="test/css"/>
+    <title> Forum ASI </title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+  <!-- rel pour specifier la relation entre le doc courant (html) et le doc lié par href (CSS) -->
   </head>
   <body>
-    <img src="logoasi.png" alt="logo ASI" id="logo"/>
+    <header id="top"> <!-- le fait d'avoir un id ici va nous servir dans le CSS afin de bien placer le logo -->
+      <img id="logo" src="logoasi.png" alt="logo ASI" id="logo" width="125" height="58"/> <!-- alt : texte alternatif à afficher si l'image ne se charge pas -->
+<!-- C'est mieux de definir la taille de l'image ici que dans le CSS, parfois les modifs ne sont pas
+prises en compte et en plus comme ça l'image se charge plus rapidement -->
+      <h1> Forum ASI </h1>
+    </header>
     <form>
       <fieldset>
         <legend> Coordonées : </legend>
         <label> Name : </label> <input type = "text" name = "monNom" id ="name" placeholder="Saisissez votre nom" />
         <br/>
         <label> E-mail : </label> <input type = "text" name = "monEmail" id ="mail" placeholder="Saisissez votre email" />
-        <!--Pour faire une ligne horizontale: <hr/>   -->
+        <!--Pour faire une ligne horizontale: <hr/>  -->
       </fieldset>
       <fieldset>
         <legend> Message : </legend>
         <textarea name="texte" rows="10" cols="80"> Message... </textarea>
       </fieldset>
       <input type="submit" name="posterMessage" value="Poster le message" />
-      <input type="submit" name="action" value="Effacer"/>
+      <input type="reset" name="action" value="Effacer"/>
     </form>
   </body>
 </html>
-<!-- On n'a pas défini les sélecteur pour le formattage CSS -->
+<!-- On n'a pas défini les sélecteurs pour le formattage CSS -->
+<!--- On n'a pas besoin de définir des classes pour les balises standard html comme <form> <fieldset>
+pour faire les formattages dans le CSS, on peut y acceder directement -->
