@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green0\blue0;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\cf1\ul\b\f0\fs32\lang9 1. Serveur Web Apache HTTP\cf0\fs22\par
+pour copier des fichier dans /public-html : \ulnone\b0 put ou scp\par
+on se deconnecte de ssh et on se place dans le repertoire depuis lequel on veut copier les fichiers a depose\par
+\b exemple\b0 : scp * nprin@asi-technoweb.insa-rouen.fr:~/public_html/\par
+* pour tout selectioner (tous les fichiers)\par
+\ul\b pour ouvrir un fichier \ulnone\par
+dans le shh : {\b0{\field{\*\fldinst{HYPERLINK http://asi-technoweb.insa-rouen.fr/~nprin/message.html }}{\fldrslt{http://asi-technoweb.insa-rouen.fr/~nprin/message.html\ul0\cf0}}}}\b0\f0\fs22\par
+\fs32\par
+\ul\b 3. Modification de la page d'inscription\par
+\i\fs22 externe : \ulnone\b0 on modifie la balise \ul\b\i0 <form>\ulnone\b0\i  : <form action=". {{\field{\*\fldinst{HYPERLINK http://asi-technoweb.insa-rouen.fr/cgi-bin/inscription-get.cgi }}{\fldrslt{http://asi-technoweb.insa-rouen.fr/cgi-bin/inscription-get.cgi\ul0\cf0}}}}\f0\fs22 " action="GET">\par
+\ul\b en interne:   \ulnone\b0 <form action="/cgi-bin/nprin/inscription-get.cgi" method="GET">\par
+\i0\par
+\ul\b autre emplacements\ulnone\b0 : connexion a un serveur sftp://asi-technoweb...\par
+ou\par
+\ul\b par vim dans le ssh :\ulnone\b0  vim nom.html\par
+i pour inserer;\par
+esc et :wp pour sauvegarder\par
+\ul\b Copier le script dans cgi-bin  \ulnone\b0\par
+\b\fs32 4. \b0\fs22\par
+\ul\b  en externe: \ulnone\b0 On remplace dans la balise <form> action=ext"POST"\par
+\ul\b\i en interne:  \ulnone\b0 <form action="/cgi-bin/nprin/inscription-post.cgi" method="POST">\i0\par
+La difference entre POST et GET:  au niveau de lien sur le navigateur. Pour le GET on obtient un lien qui contient les donnees transmises par le formulaire, separees par des caracteres speciaux representant les espaces entre les differents elements. \b\par
+GET interne vs GET externe\par
+\b0 les \b fichiers .cpi \b0 sont stockes dans ~/var/www/\par
+\b\fs32 5.  ??????\par
+\cf1\ul\par
+2. Protocole HTPP\par
+\b0\fs22\par
+\cf0\ulnone\b copier coller de la page {{\field{\*\fldinst{HYPERLINK http://wiki.insa-rouen.fr/doku.php?id=insa:asi:apache:start }}{\fldrslt{http://wiki.insa-rouen.fr/doku.php?id=insa:asi:apache:start\ul0\cf0}}}}\f0\fs22  pour le cr\par
+apres la conexion du VirtualBox on rentre dans le navigateur: {{\field{\*\fldinst{HYPERLINK http://192.168.56.101 }}{\fldrslt{http://192.168.56.101\ul0\cf0}}}}\f0\fs22  (SSH/STFP)\par
+apres dans le terminal: \b0 ssh root@192.168.56.101\par
+\par
+\ul\b\fs24 1. Date de la derniere modif d'une page\par
+\ulnone connexion sur le serveur : \b0\i telnet asi-technoweb.insa-rouen.fr 80\par
+GET \cf1 /~nprin/inscription.html \cf0 HTTP/1.1      \fs20 %% attention c'est l'adresse sur le serveur, pas en local\fs24\par
+Host: localhost\par
+If-Modified-Since: 'Fri,17 May 2019 13 :00 :00 GMT'\i0\par
+\cf1 Remarque: avec netcat on peut faire plusieurs requetes de suite\par
+\cf0\b connexion avec VirtualBox: \b0\i telnet \fs22 192.168.56.101 80\cf1\ul\b\i0\fs24\par
+\cf0 test 1:\par
+test 2:\par
+2. Requ\'eate ne r\'e9cup\'e9rant que les caract\'e8res 2 \'e0 5 d\rquote une page web.\par
+3. Requ\'eate effectuant une n\'e9gociation sur le type de m\'e9dia demand\'e9test 1:\par
+test 2:\par
+4. Requ\'eate avec n\'e9gociation de contenu sur la langue\par
+5. Requ\'eate HTTP/1.1 sans connexion persistante\par
+6. \par
+Requ\'eate retournant le code 404\par
+Requ\'eate retournant le code 501\par
+}
+�
