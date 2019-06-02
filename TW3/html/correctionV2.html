@@ -15,9 +15,16 @@
           <label for="texte"> formulaire</label>
         <input type="radio" name= "affichage" id= "pop-up"/>
           <label for="pop-up">pop-up</label>
+<!-- L'ordre des définition des balises compte ici car on va simuler un case of
+en fonction du choix effectué sur l'affichage. En fait, chaque element inclu dans
+l'element référencé par l'id="formulaire" qui a le name="affichage" on va lui attribuer
+un index dans la fonction test pour être capables de créer les conditions if.
+Les indexes commencent à 0!
+-->
   <hr/>
         <input id= "expression" type= "text" size= "15"/>
         <input type= "button" value= "=" onclick= "calculer()" />
+        <!-- On lance le script javascript en cliquant sur le button = -->
         <input id= "reponse" type= "text" size= "6" />
       </fieldset>
     </form>
@@ -25,7 +32,7 @@
       <script type="text/javascript">
           function calculer () {
             var expression = document.getElementById("expression").value;
-            var affichage = test(document.getElementById ("formulaire").affichage);
+            var affichage = test(document.getElementById("formulaire").affichage);
             if (affichage==0){
               var reponse = document.getElementById("reponse");
               reponse.value = eval(expression);
