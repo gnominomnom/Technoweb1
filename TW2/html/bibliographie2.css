@@ -1,0 +1,34 @@
+* {}
+publication {
+  display: block;
+  background-color: pink;
+  padding-left: 10px;
+  width: 500px;
+  font-family: arial ;
+  color: black;
+  font-size: 12pt ;
+}
+titre, auteurs, auteur, annee, pages {
+  display: inline;
+}
+auteur:after, pages:after {
+  content: ", "; /*des virgules apparaissent entre chaque élément*/
+}
+titre:before {
+  content: "\"";
+}
+titre {
+  font-style: italic; /*le titre apparait entre guillemets et en italiques,*/
+}
+titre:after {
+  content: "\"";
+}
+pages:before {
+  content: "pp. ";
+}
+annee:after {
+  content: "."; /*un point est ajouté à la fin de chaque publication*/
+}
+publication {
+  margin-bottom: 10px;
+}
