@@ -6,6 +6,8 @@
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <style type= "text/css">
       object{overflow : auto;}
+    /* overflow : This property specifies whether to clip content or to
+    add scrollbars when an element's content is too big to fit in a specified area.*/
     </style>
     <style type= "text/css">
       p #probleme{color : Red;}
@@ -15,14 +17,18 @@
         var emailBox=document.getElementById("email");
         var probleme=document.getElementById("probleme")
         emailBox.style.outline= "initial";
+        /*à voir pourquoi on a besoin de voir si le probleme a des fils ou pas*/
         if (probleme.hasChildNodes()) {
           probleme.removeChild(probleme.childNodes.item(0));
         }
+        /* si champ mail non rempli on encadre le champ en rouge et on affiche le
+        message d'erreur "Champ obligatoire"*/
         if(emailBox.value==" ") {
           if (!probleme.hasChildNodes()) {
             emailBox.style.outline= "solid Red";
             probleme.appendChild(document.createTextNode("Champ obligatoire."));
           }
+          /*si tout est bon on affiche le formulaire*/
         } else {
           document.forms['formulaire'].submit();
         }
