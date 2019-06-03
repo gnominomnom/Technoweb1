@@ -3,6 +3,10 @@
   * documentation jquery : https://api.jquery.com
   * placer les fonctions en jQuery dans le __<footer>__
   * choix des doubles et simples quotes important
+  * Déclarations de fonctions ne doivent pas être dans le __$(document).ready__
+  * pour debugger :
+    * __console.log('Texte');__
+    * __console.log(Objet);__
 #### Points importants CM
   * version en cache *(Google)*
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
