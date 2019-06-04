@@ -1,15 +1,9 @@
-##CR 6
+#CR 6
+*Noémie PRIN et Maria-Bianca ZUGRAVU*
 
-###### Compteur visite de page
-* soit par un fichier texte où on enregistre combien des fois on lance la personnage
-* soit directement en utilisant __$_SESSION__
 
-* utilisation de FileZilla :
- * configurer la connexion sur le serveur:
-  * icone en dessous du button Fichier --> __Hote__ : asi-technoweb.insa-rouen.fr __Procotole__ : SFTP __Type d'authentification__ : Normale avec les identifiants usuels insa --> Connexion
- * configurer les droits: onglet *site distant*: click droit sur le .php et dossier où il se trouve --> __Attributs du fichier__
 
-##### Configuration de la VirtualBox
+## Configuration de la VirtualBox
 * Lancez Virtual Box Importez l’image : « Fichier » > « Importer un appareil virtuel »
 * Sélectionnez dans /opt/ova, l’ova de TP_WEB (tp_web.ova)
 * importez-le
@@ -53,4 +47,84 @@
 | Mot de passe | TPweb2018
 
 -> valider
-    * 
+    *
+* utilisation de FileZilla :
+* configurer la connexion sur le serveur:
+* icone en dessous du button Fichier --> __Hote__ : asi-technoweb.insa-rouen.fr __Procotole__ : SFTP __Type d'authentification__ : Normale avec les identifiants usuels insa --> Connexion
+* configurer les droits: onglet *site distant*: click droit sur le .php et dossier où il se trouve --> __Attributs du fichier__
+
+## Scripts
+#### Compteur visite de page
+
+* soit par un fichier texte où on enregistre combien des fois on lance la personnage
+* soit directement en utilisant __$_SESSION__
+
+__Enoncé__
+
+L’objectif de l’exercice est de développer le code nécessaire à la création d’un compteur sur une page web. Ce compteur s’incrémentera à chaque chargement de la page (i.e. depuis plusieurs postes différents).
+
+__Script à nous sans fichier texte__
+
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+          <title>Compteur PHP</title>
+        </head>
+        <body>
+          <?php
+          session_start();
+          if (isset($_SESSION['views'])) {
+              $_SESSION['views'] = $_SESSION['views']+1;
+          }
+           else {
+              $_SESSION['views']=1;
+            }
+          echo "views = ".$_SESSION['views'];
+          ?>
+        </body>
+      </html>
+
+
+__Correction avec fichier texte__
+
+      <?php
+      function compteur ($nomdufichier) {
+        if (file_exists($nomdufichier)) {
+          $fichier = fopen($nomdufichier,’r+’);
+          flock($fichier,LOCK_EX);
+          $compteur = fgets($fichier,100);
+          if (empty($compteur))
+            $compteur = 0;
+          else
+            settype($compteur,"integer");
+          $compteur++;
+       }else {
+          $fichier = fopen($nomdufichier,’c’);
+          flock($fichier,LOCK_EX);
+          $compteur = 1;
+        }
+        fseek($fichier,0);
+        fputs($fichier,$compteur);
+        flock($fichier,LOCK_UN);
+        fclose($fichier);
+        return $compteur;
+      }
+      ?>
+
+
+
+#### Forum ASI (4) : PHP, 1ère version
+
+__Enoncé__
+
+L’objectif de l’exercice est de développer le code nécessaire à l’affichage de messages en mode anonyme, dans le forum ASI.
+Vous développerez une page affichant:
+— un formulaire identique à celui réalisé au cours du TDM sur Javascript,
+— la liste des messages précédemment déposés.
+Les différents messages seront sauvegardés dans un fichier côté serveur, dans le répertoire /tmp.
+Le script devra afficher en dessous du formulaire un tableau qui contiendra tous les messages formatés comme suit : sur la première ligne, la date où le message a été enregistré suivi du nom avec l’email entre parenthèse, et sur la deuxième ligne le message enregistré.
+Pensez également à mettre à jour la CSS pour un affichage plus propre de la liste de messages.
+
+
+__Script__
