@@ -32,6 +32,16 @@
         password : TPweb2018
 * aller dans __var/www/__ pour trouver le fichier *index.php*
 
+### Connexion par le gestionnaire de fichier Ubuntu
+  * Autre emplacement
+
+|catégorie                                                             | écrire :         
+|----------------------------------------------------------------------|-------------------------------------:|
+|  Connexion à un serveur | sftp://adresseIP
+| id |root
+| mot de passe | TPweb2018
+| chemin | var/www
+
 ### Connexion Dans FileZilla
 
 * Gestionnaire de sites
@@ -47,7 +57,7 @@
 | Mot de passe | TPweb2018
 
 -> valider
-    *
+
 * utilisation de FileZilla :
 * configurer la connexion sur le serveur:
 * icone en dessous du button Fichier --> __Hote__ : asi-technoweb.insa-rouen.fr __Procotole__ : SFTP __Type d'authentification__ : Normale avec les identifiants usuels insa --> Connexion
@@ -128,3 +138,92 @@ Pensez également à mettre à jour la CSS pour un affichage plus propre de la l
 
 
 __Script__
+
+<?php
+  header('Content-Type:text/html;charset=UTF-8');
+  setlocale(LC_TIME,"fr_FR.utf8");
+  require('forum.inc.php');
+?>
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title> Forum ASI </title>
+      <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+      <link href ="style.css" rel="stylesheet" type="text/css" />
+      <link href ="Ressources/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+    <header id="top">
+      <img id="logo" src="Images/logo-asi.png" alt="ASI" width="125" height="58" />
+      <h1> Forum ASI </h1>
+    </header>
+    <p id ="probleme"> </p>
+    <form name ="formulaire" action ="forum.php" method ="post">
+      <fieldset>
+        <legend> Coordonnées : </legend>
+        <label for ="name"> Nom : </label> <input placeholder="Saisissez votre nom" id="name" name ="name" type="text" size="30" />
+        <label for ="email">E-mail : </label> <input placeholder="Saisissez votre email " id ="email" name ="email" type ="text" size="30"/>
+      </fieldset>
+      <fieldset>
+        <legend> Message : </legend>
+        <textarea rows ="4" cols ="50" id="message" name="message"> </textarea>
+      </fieldset>
+      <input type="button" value="Poster le message" onclick="Javascript:verification();"/>
+      <input type ="button" value="Effacer" onclick="Javascript:nettoyage();"/>
+    </form>
+    <?php //enregistrement du message si submit
+      if (isset($_ POST) && !empty($_ POST['name'])) {
+        $message=construireMessage($_ POST['name']."(".$_ POST['email'].")",$_ POST['message']);
+        ecrireMessage('/tmp/livredor.dat', $message);
+      }
+    ?>
+    <h1> Liste des messages postés </h1>
+    <? php // affichage du livre d ’ or
+      foreach(lireMessages('/tmp/livredor.dat') as $message):
+    ?>
+    <table>
+      <tr>
+        <td class="date"> <?php echo htmlentities($message[0])?> </td>
+        <td class="auteur"> <?php echo htmlentities($message[1])?> </td>
+      </tr>
+      <tr>
+      <td colspan="2"><pre> <?php echo htmlentities($message[2])?> </pre> </td>
+      </tr>
+    </table>
+    <?php
+      endforeach;
+    ?>
+    <footer>
+      <style type="text/css" scoped>
+        object{overflow : auto;}
+      </style>
+      <style type="text/css" scoped>
+        p #probleme{color:Red;}
+      </style>
+      <script type ="text/javascript">
+        function verification() {
+        var emailBox=document.getElementById("email");
+        var probleme=document.getElementById("probleme");
+        if (emailBox.value==" ") {
+          if (!probleme.hasChildNodes()) {
+            emailBox.style.outline="solid Red";
+            probleme.appendChild(document.createTextNode("Champ obligatoire."));
+          }
+          } else {
+            document.forms['formulaire'].submit();
+          }
+        };
+        function nettoyage() {
+          if (confirm('Etes vous sur ?')) {
+            document.getElementById("email").style.outline="initial";
+            var probleme=document.getElementById("probleme");
+            if (probleme.hasChildNodes()) {
+              probleme.removeChild(probleme.childNodes.item(0));
+            }
+            document.forms['formulaire'].reset();
+          }
+        };
+      </script>
+    </footer>
+  </body>
+</html>
