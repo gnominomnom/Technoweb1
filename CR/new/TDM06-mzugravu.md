@@ -33,4 +33,24 @@
 
 ##### Connexion à la VirtualBox
 
-* Connexion à la VirtualBox : __
+### Connexion à la VirtualBox via le terminal :
+        ssh root@adresseIP
+        password : TPweb2018
+* aller dans __var/www/__ pour trouver le fichier *index.php*
+
+### Connexion Dans FileZilla
+
+* Gestionnaire de sites
+  * Nouveau Site
+
+
+|catégorie                                                             | écrire :         
+|----------------------------------------------------------------------|-------------------------------------:|
+| Hôte  | IP
+| Protocole |  SFTP
+| Type d'authentification | Normale
+| Id | root
+| Mot de passe | TPweb2018
+
+-> valider
+    * 
