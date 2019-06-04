@@ -1,6 +1,16 @@
-### CR 5 HTTP
+#  CR 5 HTTP
+
+#Scripts
 
 #### 1. Serveur Web Apache HTTP
+
+### 1 Tester le script CGI
+
+# mdp: TPweb2018
+
+On le test le fichier __hello-perl.cgi__  directement dans le navigateur: __hello-perl.cgi__
+
+### 2 Test des script depuis le navigateur
 
 __Connexion au serveur__ : ssh asi-technoweb.insa-rouen.fr
 
@@ -22,6 +32,13 @@ __Pour ouvrir un fichier depuis serveur et dans navigateur__ : http://asi-techno
   * i: pour inserer du texte et on se place où on veut faire l'insertion
   * __esc__ et __:wp__ pour sauvegarder
 
+__Script forum_ASI.php qui se trouve dans public-public_html__
+
+
+
+
+
+
 ##### Exercice 3 : Modification de la page d'inscription pour que le traitement du formulaire soit effectué en POST par le CGI
 
  Pareil : <*form action="http://asi-technoweb.insa-rouen.fr/cgi-bin/inscription-get.cgi" action="POST*>
@@ -39,6 +56,13 @@ Au niveau de lien sur le navigateur: pour __GET__ on obtient un lien qui contien
 
 
 #### 2. Protocole HTTP
+
+### Test des requêtes aupres de la VirtualBox
+
+__Connexion__ : *>>> ssh root@192.168.56.101*
+
+mdp: *TPweb2018*
+
 ###### 1. Requête pour la date de dernière modification d’une page
 * __si page modifiée depuis une certaine date__:
 
