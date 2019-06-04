@@ -77,11 +77,11 @@
         foreach($_POST as $val) echo "$val ! ";
         if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
           echo "entre";
-          $filename = '/tmp/file.txt'; /*si on met ./tmp/... le fichier sera sauvegardé dans /var/www/tmp/ sans . directement dans public_html/tmp/ */
+          $filename = '/tmp/file.txt'; // si on met ./tmp/... le fichier sera sauvegardé dans /var/www/tmp/ sans . directement dans public_html/tmp/
           $dirname = dirname($filename);
           if (!is_dir($dirname))
           {
-              mkdir($dirname, 0777, true); /*0777 : droits sur le repertoire: max des droits*/
+              mkdir($dirname, 0777, true); //0777 : droits sur le repertoire: max des droits
           }
           $fichier=fopen($filename, "a+");
           fputs($fichier,$_POST['name']." ".$_POST['email']." ".$_POST['message']);
