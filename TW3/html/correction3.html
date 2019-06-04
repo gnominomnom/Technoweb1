@@ -11,24 +11,30 @@
       function depart () {
         afficheDate();
         setInterval(majHeure,1000);
+        /*appel de la fonction majHeure chaque seconde = 1000 ms*/
       }
       function afficheDate() {
         var maintenant=new Date() ;
         var body = document.getElementsByTagName("body")[0];
         var date = document.createTextNode(maintenant.getDate() + "/"
                   + String(maintenant.getMonth()+1)+ "/" + maintenant.getFullYear() + " ");
+        /*maintenant.getMonth() + 1 car la méthode getMonth() renvoie les mois numérotés de 0 à 11*/
         body.appendChild(date);
+        /* on affiche la date formatée après l'enfant descendant direct càd la balise <h1> */
         var heure = document.createTextNode(maintenant.getHours()+":"
                   + maintenant.getMinutes()+ ":" + maintenant.getSeconds());
         body.appendChild(heure);
+        /* après la date on affiche l'heure formatée*/
       }
       function majHeure() {
         var maintenant=new Date();
         var body = document.getElementsByTagName("body")[0];
         var vieilleHeure = body.lastChild;
+        /* l'heure ancienne est le dernier enfant dans le <body> */
         var nouvelleHeure = document.createTextNode(maintenant.getHours() + ":"
         + maintenant.getMinutes() + ":" + maintenant.getSeconds());
         body.replaceChild(nouvelleHeure,vieilleHeure);
+        /*on remplace l'heure ancienne par la nouvelle */
         }
     </script>
     </footer>
