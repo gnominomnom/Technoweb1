@@ -31,6 +31,7 @@ __Pour ouvrir un fichier depuis serveur et dans navigateur__ : http://asi-techno
   * __vim nom_fichier__
   * i: pour inserer du texte et on se place où on veut faire l'insertion
   * __esc__ et __:wp__ pour sauvegarder
+  * pour tout quitter: __:qa!__
 
 __Script forum_ASI.php qui se trouve dans public-public_html__
 
