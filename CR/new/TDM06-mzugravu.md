@@ -1,11 +1,12 @@
-##CR 7
+##CR 6
 
 ###### Compteur visite de page
 * soit par un fichier texte où on enregistre combien des fois on lance la personnage
 * soit directement en utilisant __$_SESSION__
 
 * utilisation de FileZilla :
- * configurer la connexion sur le serveur: icone en dessous du button Fichier --> __Hote__ : asi-technoweb.insa-rouen.fr __Procotole__ : SFTP __Type d'authentification__ : Normale avec les identifiants usuels insa --> Connexion
+ * configurer la connexion sur le serveur:
+  * icone en dessous du button Fichier --> __Hote__ : asi-technoweb.insa-rouen.fr __Procotole__ : SFTP __Type d'authentification__ : Normale avec les identifiants usuels insa --> Connexion
  * configurer les droits: onglet *site distant*: click droit sur le .php et dossier où il se trouve --> __Attributs du fichier__
 
 ##### Configuration de la VirtualBox
@@ -21,5 +22,15 @@
 * Une fois sélectionné, le « Nom » devrait prendre automatiquement la valeur vboxnet0. Sinon défiler le menu déroulant et sélectionner celui-ci.
 * Tout est bon ! Il ne vous reste plus qu’à lancer votre machine virtuelle, jusqu’à obtenir l’écran vous fournissant l’adresse IP à vous connecter en SFTP, SSH et bien sûr HTTP.
 * Durant l’examen, vous travaillerez dans le répertoire web par défaut du serveur (var/www). Vous y déposerez vos fichiers qui seront donc accessibles depuis la racine du serveur web.
-* Le serveur web, tournant sur la Virtual Box, est accessible en SSH et en SFTP. Les informations de connexion sont : root / TPweb2018.
+* Le serveur web, tournant sur la Virtual Box, est accessible en SSH et en SFTP. Les informations de connexion sont : TPweb2018.
 * Attention, dans Firefox, si vous souhaitez pouvoir accéder à la fois au serveur web et aux sites extérieurs, pensez à ajouter votre site dans la liste des exceptions du proxy.
+
+##### Accès :
+* accès au répertoire personnel : *chmod g+x* (exécution)
+* accès au répertoire personnel sur le serveur : *chmod g+x/public.html*
+
+* __Connexion au serveur__ mettre son propre mot de passe
+
+##### Connexion à la VirtualBox
+
+* Connexion à la VirtualBox : __

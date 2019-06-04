@@ -9,7 +9,7 @@ __Copier des fichiers dans /public-html__ :
 
   scp * nprin@asi-technoweb.insa-rouen.fr:~/public_html/
 
-__Pour ouvrir un fichier depuis serveur et dans navigateur__ : http://asi-technoweb.insa-rouen.fr/~nprin/<fichier_a_ouvrir.html>
+__Pour ouvrir un fichier depuis serveur et dans navigateur__ : http://asi-technoweb.insa-rouen.fr/~login/<fichier_a_ouvrir.html>
 
 ##### Exercice 3 : Modification de la page d'inscription pour que le traitement du formulaire soit effectué en GET par le CGI
 *Fichier modifié*: TP1/inscription.html
