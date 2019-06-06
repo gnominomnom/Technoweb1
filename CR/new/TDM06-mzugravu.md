@@ -191,7 +191,7 @@ Ex :
 |Positionnement | fseek($fichier, int $position);
 
 
-#### Formiulaires
+#### Formulaires
 
   * __$_Get__ et __$_POST__ contiennent les champs d'un formulaire
   * Obtenir les coordonnées d'un clic pour un __submit__ image : __$sub_x__ et __$sub_y__
