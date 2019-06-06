@@ -1,17 +1,20 @@
 # CR TDM04 jQuery
 #### Remarques pratiques
-  * documentation jquery : https://api.jquery.com
+  * documentation jquery :
+        "https://api.jquery.com"
+
   * placer les fonctions en jQuery dans le __<footer>__
   * choix des doubles et simples quotes important
   * Déclarations de fonctions ne doivent pas être dans le __$(document).ready__
   * pour debugger :
     * __console.log('Texte');__
     * __console.log(Objet);__
+
 #### Points importants CM
   * version en cache *(Google)*
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
           </script>
-  * version locale *téléchargement su www.jquery.com*
+  * version locale *téléchargement sur www.jquery.com*
 
       <script type="text/javascript" src="jquery.js"></script>
   * appel d'un élément html par son identifiant :
@@ -43,7 +46,9 @@
             $( "li" ).each(function( index ) {
               console.log( index + ": " + $( this ).text() );
             });
-    * récupération et/ou modification de contenu de balises :
+
+
+  * récupération et/ou modification de contenu de balises :
 
 |fonctions                                                             | explication         
 |----------------------------------------------------------------------|-------------------------------------:|
@@ -60,6 +65,7 @@
 | __$('selecteur').css("attrCSS", "nouvelleValeurCSS")__               | modifier la valeur de l'attribut attrCSS dans le .css associé à selecteur
 | __$('selecteur').animate()__                                         |crée une animation sur l'objet 'selecteur' à partir de propriétés mises en entrées
   ex :
+
           $('#trombone').animate({
             'left':"left"+"px",
             'top':"top"+"px"
@@ -110,3 +116,177 @@
   * __isNaN(valeur)__ is not a number
 
 #### Scripts
+
+###### inscritptions.html
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Formulaire d'inscription au forum ASI</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="style.css" rel="stylesheet" type="text/css"  />
+      </head>
+      <body>
+        <header id="top">
+          <img id="logo" src="logo-asi.png" alt="ASI" width="125" height="58" />
+          <h1>Forum ASI</h1>
+        </header>
+        <form action="GET">
+          <fieldset id="fieldset">
+            <legend>Formulaire d'nscription</legend>
+            <label for="name">Nom : </label><input onfocus='agent("neutre", 150, 0, "Je surveille votre saisie")' placeholder="Saisissez votre nom"  id="name" name="name" type="text" size="30" onchange='verifierSaisieNom(150, 0)'/>
+            <label for="name">Prénom : </label><input onfocus='agent("neutre", 150, 50,  "Je surveille votre saisie")' placeholder="Saisissez votre prénom"  id="surname" name="surname" type="text" size="30" />
+            <label for="email">E-mail : </label><input onfocus='agent("neutre", 150, 150,  "Je surveille votre saisie")' placeholder="Saisissez votre email" id="email" name="email" type="text" size="30" />
+            <hr/>
+
+            <label>Statut : </label>
+              <input type="radio" id="enseignant" name="statut" value="enseignant" /><label class="labelradio" for="enseignant"> Enseignant</label>
+              <input type="radio"  id="etudiant" name="statut" value="etudiant" /> <label  class="labelradio" for="etudiant"> Étudiant</label><br />
+            <label for="annee">Si étudiant, année : </label>
+              <select name="annee" id="annee">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select><br />
+              <img id="trombone" src="Images/happy.png" height=110, width=110 />
+              <div id="message">Bienvenue ! </div>
+            <label for="photo">Photo :</label> <input type="file" name="maPhoto" id="photo" />
+          </fieldset>
+          <input type="submit" />
+          <input type="reset" value="Effacer"/>
+        </form>
+        <footer>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+          </script>
+          <script>
+            function agent(expression, top, left, message) {
+              switch(expression){//attributs #attr entre simples quotes
+                case "heureux":
+                  $('#trombone').attr("src", "Images/happy.png");
+                  $('#message').text(message);
+                  $('#message').css("background-color", "green");
+                  break;
+                case "triste":
+                  $('#trombone').attr("src", "Images/sad.png");
+                  $('#message').text(message);
+                  $('#message').css("background-color", "red");
+                  break;
+                case "neutre":
+                  $('#trombone').attr("src", "Images/neutre.png");
+                  $('#message').text(message);
+                  $('#message').css("background-color", "grey");
+                  break;
+              };
+              $('#trombone').animate({ //doubles et simples quotes sont importantes
+                'left':"left"+"px",
+                'top':"top"+"px"
+              }, 1000);
+          };
+
+            function verifierSaisieNom(top, left) {
+              var nom=document.getElementById("name");
+              if (nom.value==""){
+                agent("sad", top, left, "Le champ ne doit pas être vide");
+              }
+              for (i : nom.value) {
+                if (!isNaN(i)){
+                  agent("sad", top, left, "Il ne doit pas y avoir de chiffre...");
+                }
+              }
+            }
+            function verifiersaisiePrenom(top, left) {
+              var prenom=document.getElementById("surname");
+              if (prenom.value==""){
+                agent("sad", top, left, "Le champ ne doit pas être vide");
+              }
+              for (i : prenom.value) {
+                if (!isNaN(i)){
+                  agent("sad", top, left, "Il ne doit pas y avoir de chiffre...");
+                }
+              }
+            }
+            function verifierEMail(top, left) {
+              var email=document.getElementById("email");
+              int contientAt=0;
+              if (email.indexOf('@')=-1){
+                agent("sad", top, left, "Le format de l'entrée n'est pas celui d'un E-mail");
+              }
+              else {
+                var domaine=email.slice(email.indexOf('@')+1);
+                if (domaine.indexOf('.')=-1) {
+                  agent("sad", top, left, "Le format de l'entrée n'est pas celui d'un E-mail");
+                }
+              }
+            }
+
+          </script>
+        </footer>
+      </body>
+    </html>
+
+###### style.css
+
+
+     {
+    	font-family:Arial, Helvetica, sans-serif;
+    }
+    #logo {
+    	float : right;
+    }
+    #top {
+    	width : 500px;
+    }
+    #page {
+    	margin : 10px;
+    }
+    fieldset {
+    	width : 500px;
+    	padding : 10px;
+    	margin-top : 10px;
+    	border : solid 3px grey;
+    	line-height : 2em;
+    }
+    legend {
+    	border : none;
+    	padding : 5px 10px 5px 10px;
+    	line-height : 1em;
+    	background-color : grey;
+    	color : white;
+    }
+    label {
+    	width: 150px;
+    	display: block;
+    	float: left;
+    }
+    label.labelradio , label[for=copie] {
+    	display: inline;
+    	float:none;
+    	margin-right:20px;
+    }
+    h1 {
+    	font-size:24px;
+    }
+    input[type=submit],input[type=reset] {
+    	background-color : green;
+    	color : white;
+    	margin-top : 20px;
+    	font-size:16px;
+    	weight:bold
+    }
+    #trombone {
+    	position:absolute;
+    	left : 400px;
+    	top : 175px;
+    }
+
+    #message {
+    	position:relative;
+    	left : 450px;
+    	top : -125px;
+    	background-color: white;
+    	border : solid 2px black;
+    	width : 150px;
+    	align-self: center;
+    }
