@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE dictionnaire SYSTEM "./dictionnaire.dtd">
+
+<?xml-stylesheet type="text/css" href="styleDictionnaire.css" ?>
+
+<dictionnaire>
+    <concept>
+        <nom>Chat</nom>
+        <definition>Petit animal fourbe à fourrure</definition>
+        <contributeurs>
+            <contributeur>Bob Leponge</contributeur>
+            <contributeur>Samantha Lo</contributeur>
+        </contributeurs>
+    </concept>
+    <concept>
+        <nom>ASI</nom>
+        <definition>Chouette département de l'INSA</definition>
+        <contributeurs>
+            <contributeur>Alexandre Pauchet</contributeur>
+        </contributeurs>
+    </concept>
+</dictionnaire>

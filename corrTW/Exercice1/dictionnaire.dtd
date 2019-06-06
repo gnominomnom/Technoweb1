@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!ELEMENT dictionnaire (concept+)>
+<!ELEMENT concept (nom, definition, contributeurs)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT definition (#PCDATA)>
+<!ELEMENT contributeurs (contributeur+)>
+<!ELEMENT contributeur (#PCDATA)>

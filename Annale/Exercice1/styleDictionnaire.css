@@ -1,0 +1,47 @@
+dictionnaire {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    position: absolute;
+}
+
+dictionnaire:before {
+    content: "Dictionnaire";
+    font-size: 40px;
+    font-weight: bold;
+}
+
+concept {
+    display: block;
+    margin-left: 50px;
+    margin-bottom: 60px;
+}
+
+nom {
+    font-weight: bold;
+    display: inline;
+}
+
+nom:after {
+    content: " :";
+}
+
+definition {
+    font-style: italic;
+}
+
+contributeurs {
+    margin-left: 50px;
+    display: block;
+}
+
+contributeurs:before {
+    content: "Contributeurs : ";
+}
+
+contributeur:before {
+    content: "- "
+}
+contributeur {
+    display: block;
+    margin-left: 60px;
+}

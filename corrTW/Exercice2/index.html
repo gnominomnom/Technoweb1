@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="libs/style.css">
+    <script type="text/javascript" src="libs/jquery-2.1.4.min.js"></script>
+    <title>Exercice 2</title>
+</head>
+<body>
+    <h1>Formulaire d'inscription</h1>
+    <form onreset="return valReset()" method="POST">
+        <label for="login">Login :</label>
+        <input type="text" id="login" name="login" placeholder="Saisissez un login">
+        <span id="v0" style="display:none">Vide !</span>
+        <label for="email">E-mail :</label>
+        <input type="email" id="email" name="email" placeholder="Saisissez un email">
+        <span id="v1" style="display:none">Vide !</span>
+        <label for="mdp">Mot de passe :</label>
+        <input type="text" name="mdp" id="mdp" oninput="enableMDP(this)" placeholder="Saisissez un mot de passe">
+        <span id="v2" style="display:none">Vide !</span>
+        <label for="mdp2">2nde saisie :</label>
+        <input id ="mdp2" type="text" name="mdp2" placeholder="Re-saisissez votre mot de passe" disabled>
+        <span id="v3" style="display:none">Vide !</span>
+        <input type="submit" value="S'inscrire" onclick="return verif()">
+        <input type="reset" value="Effacer">
+    </form>
+</body>
+<script type="text/javascript">
+    function valReset() {
+        return confirm("Êtes-vous sûr(e) de vouloir effacer le formulaire ?");
+    }
+
+    function verif() {
+        let inputs = $('input');
+        let nbVides = 3;
+        for (i = 0; i < 3; i++) {
+            if ($(inputs[i]).val() == "") {
+                $('#v' + i).css("display", "inline");
+                $(inputs[i]).css("border", "solid 3px red");
+            } else {
+                $('#v' + i).css("display", "none");
+                $(inputs[i]).css("border", "");
+                nbVides -= 1;
+            }
+        }
+
+        let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let bonEmail = true;
+
+        if (regex.test($('#email').val()) == false) {
+            $('#v1').css("display", "inline");
+            $('#v1').html("Email");
+            $('#email').css("border", "3px solid red")
+            bonEmail = false;
+        } else {
+            $('#v1').css("display", "none");
+            bonEmail = true;
+        }
+
+        if (nbVides == 0 && bonEmail == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function enableMDP(x) {
+        if ($(x).val().length >= 1) {
+            $('#mdp2').prop("disabled", false);
+        } else {
+            $('#mdp2').prop("disabled", true);
+        }
+    }
+
+
+</script>
+</html>

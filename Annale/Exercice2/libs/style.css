@@ -1,0 +1,35 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+form {
+	width: 510px;
+	padding: 10px;
+	margin-top: 10px;
+	border: solid 3px grey;
+	line-height: 2em;
+}
+h1 {
+	font-size: 24px;
+	width: 516px;
+	border: none;
+	padding: 5px 10px 5px 10px;
+	line-height: 1em;
+	background-color: grey;
+	color: white;
+}
+label {
+	width: 150px;	
+	display: inline-block;
+}
+input {
+	width: 300px;
+	display: inline-block;
+	border: 1px solid grey;
+}
+input[type=submit], input[type=reset]{
+	width: 150px;	
+	background-color: green;
+	color: white;
+	margin-top: 20px;
+	font-size: 16px;
+}

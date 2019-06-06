@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<bibliographie>
+<publication>
+	<titre>Quantum-Inspired Immune Clone algorithm and Multiscale Bandelet based Image Representation</titre>
+	<journal>Pattern Recognition Letters</journal>	
+	<annee>2010</annee>
+	<auteurs>
+		<auteur>Shuyuan Yang</auteur>
+		<auteur>Licheng Jia</auteur>
+		<auteur>Min Wang</auteur>
+	</auteurs>
+</publication>
+<publication>
+	<titre>A two-stage speech activity detection system considering fractal aspects of prosody </titre>
+	<journal>Pattern Recognition Letters</journal>	
+	<annee>2010</annee>
+	<auteurs>
+		<auteur>Soheil Shafiee</auteur>
+		<auteur>Farshad Almasganj</auteur>
+		<auteur>Bahram Vazirnezhad</auteur>
+		<auteur>Ayyoob Jafari</auteur>
+	</auteurs>
+</publication>
+<publication>
+	<titre>The ROC skeleton for multiclass ROC estimation </titre>
+	<journal>Pattern Recognition Letters</journal>	
+	<annee>2010</annee>
+	<auteurs> 
+		<auteur>Thomas Landgrebe</auteur>
+		<auteur>Pavel Paclik</auteur>
+	</auteurs>
+</publication>
+</bibliographie>
