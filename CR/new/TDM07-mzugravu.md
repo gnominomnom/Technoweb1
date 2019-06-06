@@ -377,6 +377,76 @@ __forum.php__
 
 ## Points importants CM
 
+
+#### Chaînes de caractères :
+    * $toto="Mot"
+      * 'Texte $toto' = Texte $toto
+      * "Texte $toto" = Texte Mot
+
+|description                                                             | fonction :         
+|----------------------------------------------------------------------|-------------------------------------:|
+| Longueur | int strlen(string $ch)
+| Répétition | string str_repeat(string $cr, int nb)
+| Minuscules | string strtolower(string $ch)
+| Majuscules | string strtoupper(string $ch)
+| Initiales en majuscules | string ucwords(string $ch)
+| 1 ere lettre en majuscule | string ucfirst(string $ch)
+| Suppression de caractères en début de chaîne | string ltrim(string $ch, string liste)
+| Suppression de caractères en fin de chaîne | string rtrim(string $ch, string liste)
+| Suppression de caractères en début et fin de chaîne | string trim(string $ch, string liste)
+| Recherche sensible à la casse (retourne tous les caractères de $ch depuis la 1 ere occurence de $ch2 jusqu’à la fin) | string strstr(string $ch, string $ch2)
+|Recherche insensible à la casse | string stristr(string $ch, string $ch2)
+|Extraction de chaînes de caractères | string substr(string $chr, int indice, int N)
+|Décompte du nombre d’occurences d’une sous-chaîne | int substr_count(string $ch, string $ssch)
+|Remplacement | string str_replace(string $oldssch, string $newssch,string $ch)
+|Position | int strpos(string $ch, string $ssch)
+
+#### Expression rationnelle :
+
+
+  |description                                                             | fonction :         
+  |----------------------------------------------------------------------|-------------------------------------:|
+  | "*caractère*" ou '*caractère*' | caractère
+  | [xyz] ou [a_z] | classe de caractères
+  | [[:digit:]] | chiffres
+
+#### Cardinalité
+
+|description                                                             | syntaxe :         
+|----------------------------------------------------------------------|-------------------------------------:|
+|0 ou 1 fois | ?
+|Au moins une fois | +
+|0, 1 ou plusieurs fois | *
+|Exactement n fois | "{n}"
+|Au moins n fois | "{n,}"
+|Entre n et m fois | "{n,m}"
+|Groupements | ()
+|Alternative | | |
+
+
+
+#### Formulaires
+
+  * __$_Get__ et __$_POST__ contiennent les champs d'un formulaire
+  * Obtenir les coordonnées d'un clic pour un __submit__ image : __$sub_x__ et __$sub_y__
+  * Transfprmer les caractères spéciaux en caractères interprétables par le navugateur:
+  __string htmlentities(string [, int $flags])__ enregistre les texte tel quel
+  __string html_entity_decode(string[, int $flags]);__ interprète le code html dans une chaine de caractère
+
+  Ex :
+
+          <? php
+            $phrase = " J 'aime le <strong> gras </strong> ! ";
+            $a = htmlentities($phrase);
+            $b = html_entity_decode($a);
+            echo $phrase . "<br/>"; // J ’ aime le gras ! ( avec " gras " en gras )
+            echo $a . "<br/>";      // J ’ aime le < strong > gras </ strong > !
+            echo $b;                // J ’ aime le gras ! ( avec " gras " en gras )
+        ?>
+
+        <pre> </pre> interprète les espaces, tabulations et sauts de ligne
+
+
 __Tableaux superglobaux__
 
 * $_GLOBAL contient des références sur les variables de l’environnement d’exécution global (clefs = noms des variables globales)
