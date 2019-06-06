@@ -190,6 +190,29 @@ Ex :
 |Test de fin de fichier | boolean feof($fichier)
 |Positionnement | fseek($fichier, int $position);
 
+
+#### Formiulaires
+
+  * __$_Get__ et __$_POST__ contiennent les champs d'un formulaire
+  * Obtenir les coordonnées d'un clic pour un __submit__ image : __$sub_x__ et __$sub_y__
+  * Transfprmer les caractères spéciaux en caractères interprétables par le navugateur:
+  __string htmlentities(string [, int $flags])__ enregistre les texte tel quel
+  __string html_entity_decode(string[, int $flags]);__ interprète le code html dans une chaine de caractère
+
+  Ex :
+
+          <? php
+            $phrase = " J 'aime le <strong> gras </strong> ! ";
+            $a = htmlentities($phrase);
+            $b = html_entity_decode($a);
+            echo $phrase . "<br/>"; // J ’ aime le gras ! ( avec " gras " en gras )
+            echo $a . "<br/>";      // J ’ aime le < strong > gras </ strong > !
+            echo $b;                // J ’ aime le gras ! ( avec " gras " en gras )
+        ?>
+
+  * __<pre> </pre>__ interprète les espaces, tabulations et sauts de ligne
+
+
 ## Scripts
 #### Compteur visite de page
 
