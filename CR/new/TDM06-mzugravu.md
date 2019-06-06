@@ -210,7 +210,7 @@ Ex :
             echo $b;                // J ’ aime le gras ! ( avec " gras " en gras )
         ?>
 
-  * __<pre> </pre>__ interprète les espaces, tabulations et sauts de ligne
+        <pre> </pre> interprète les espaces, tabulations et sauts de ligne
 
 
 ## Scripts
