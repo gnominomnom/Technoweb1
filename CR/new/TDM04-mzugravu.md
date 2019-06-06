@@ -12,11 +12,12 @@
 
 #### Points importants CM
   * version en cache *(Google)*
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" >
           </script>
   * version locale *téléchargement sur www.jquery.com*
 
-      <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="jquery.js" > </script>
+
   * appel d'un élément html par son identifiant :
 
           <div id="message">Bienvenue ! </div>
